@@ -1,0 +1,54 @@
+{
+  "name": "@aitherium/awasp",
+  "version": "0.1.0",
+  "description": "Stream one GGUF from any Range+CORS URL into a bounded buffer, resumable from the device's own cache.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts"
+    }
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js"
+      }
+    },
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node --test \"test/*.test.mjs\"",
+    "pack:dist": "npm run build && npm pack"
+  },
+  "keywords": [
+    "gguf",
+    "range-request",
+    "streaming",
+    "opfs",
+    "webgpu",
+    "wasm",
+    "weights"
+  ],
+  "peerDependencies": {
+    "@aitherium/awkit": ">=0.2.0"
+  },
+  "license": "BUSL-1.1",
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "typescript": "^5.9.3"
+  }
+}
